@@ -8,6 +8,9 @@ Open MFA standards are defined in [RFC 4226][RFC 4226] (HOTP: An HMAC-Based One-
 
 GOTP was inspired by [PyOTP][PyOTP].
 
+> [!NOTE]
+> This is a fork/copy from the original repository for holding and improving (`for future uses`), since the original seems unmaintained due to inactivity of the owner. The reason for forking/copying this repo is related to the `generateOTP` (entropy) HMAC Offset being correctly implemented for OTP generation.
+
 
 ## Installation
 
