@@ -37,7 +37,8 @@ func NewOTP(secret string, digits int, hasher *Hasher) OTP {
 
 /*
 params
-    input: the HMAC counter value to use as the OTP input. Usually either the counter, or the computed integer based on the Unix timestamp
+
+	input: the HMAC counter value to use as the OTP input. Usually either the counter, or the computed integer based on the Unix timestamp
 */
 func (o *OTP) generateOTP(input int64) string {
 	if input < 0 {
@@ -47,6 +48,7 @@ func (o *OTP) generateOTP(input int64) string {
 	hasher.Write(Itob(input))
 	hmacHash := hasher.Sum(nil)
 
+	// Note: This correctly Implementation.
 	offset := int(hmacHash[len(hmacHash)-1] & 0xf)
 	code := ((int(hmacHash[offset]) & 0x7f) << 24) |
 		((int(hmacHash[offset+1] & 0xff)) << 16) |
